@@ -1,0 +1,15 @@
+﻿<UserControl x:Class="PlayniteCustomSteamCovers.CustomSteamCoversSettingsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             xmlns:pro="clr-namespace:PlayniteCustomSteamCovers">
+    <StackPanel Margin="10">
+        <TextBlock Text="Path to Steam user folder:" Margin="0,0,0,5" />
+        <StackPanel Orientation="Horizontal" Margin="15,0,0,0">
+            <TextBox Text="{Binding PathToSteamUserdata}" Width="160" />
+            <Button x:Name="btnOpenFile" Click="btnOpenFile_Click" Content="Browse" Margin="5,0,0,0"/>
+        </StackPanel>
+        <TextBlock Text="{Binding PathStatus}" Margin="0,0,0,0"/>
+        <TextBlock Text="This path should point to (steam directory)\userdata\(your id)" Margin="0,0,0,5" />
+    </StackPanel>
+</UserControl>

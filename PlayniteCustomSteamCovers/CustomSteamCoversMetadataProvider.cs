@@ -1,15 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
-using System.Drawing;
-using System.Drawing.Imaging;
 using System.IO;
-using System.Linq;
-using System.Net;
-using System.Text;
 using System.Xml;
 using Playnite.SDK;
-using Playnite.SDK.Metadata;
+using Playnite.SDK.Models;
 using Playnite.SDK.Plugins;
 
 namespace PlayniteCustomSteamCovers
@@ -25,8 +19,6 @@ namespace PlayniteCustomSteamCovers
         private readonly CustomSteamCoversMetadataSettings _settings;
         private readonly CustomSteamCoversMetadataPlugin _plugin;
         private readonly string _pluginUserDataPath;
-        private readonly XmlDocument _wiiDb;
-        private readonly byte[] _gamelist;
 
         private List<MetadataField> _availableFields;
 
@@ -39,17 +31,9 @@ namespace PlayniteCustomSteamCovers
             _plugin = plugin;
             _pluginUserDataPath = plugin.GetPluginUserDataPath(); 
             _settings = plugin.LoadPluginSettings<CustomSteamCoversMetadataSettings>();
-            //DolphinMetadataSettings.MigrateSettingsVersion(_settings, plugin);
         }
 
-        public override List<MetadataField> AvailableFields
-        {
-            get
-            {
-                if (_availableFields == null) _availableFields = GetAvailableFields();
-                return _availableFields;
-            }
-        }
+        public override List<MetadataField> AvailableFields => _availableFields ??= GetAvailableFields();
 
         private List<MetadataField> GetAvailableFields()
         {
@@ -96,7 +80,7 @@ namespace PlayniteCustomSteamCovers
             return false;
         }
 
-        public override MetadataFile GetCoverImage()
+        public override MetadataFile GetCoverImage(GetMetadataFieldArgs args)
         {
             if (AvailableFields.Contains(MetadataField.CoverImage) && _coverPath != null)
             {
@@ -111,7 +95,7 @@ namespace PlayniteCustomSteamCovers
                 }
             }
 
-            return base.GetCoverImage();
+            return base.GetCoverImage(args);
         }
     }
 }

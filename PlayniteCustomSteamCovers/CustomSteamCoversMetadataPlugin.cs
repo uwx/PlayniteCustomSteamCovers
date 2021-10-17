@@ -25,7 +25,7 @@ namespace PlayniteCustomSteamCovers
         }
 
         public override Guid Id { get; } = Guid.Parse("382f576f-dd0d-4dd3-9cca-d3ac11a6f3ce");
-        public override string Name { get; } = "Custom Steam Covers";
+        public override string Name => "Custom Steam Covers";
 
         public override List<MetadataField> SupportedFields { get; } = new List<MetadataField>
         {

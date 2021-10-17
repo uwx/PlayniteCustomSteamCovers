@@ -6,7 +6,7 @@ I created this in a few minutes to load my custom Steam grid covers in Playnite.
 
 ## Installation
 
-[Download the .zip](https://github.com/uwx/PlayniteCustomSteamCovers/releases), extract to your Playnite folder (such as `%APPDATA%\Playnite`). .pext version coming soon!
+[Download the .pext](https://github.com/uwx/PlayniteCustomSteamCovers/releases) and open it with Playnite.
 
 You have to restart Playnite after installing the extension.
 

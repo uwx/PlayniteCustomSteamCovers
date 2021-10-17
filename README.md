@@ -12,7 +12,7 @@ You have to restart Playnite after installing the extension.
 
 ## Usage
 
-In your Playnite settings, go to Metadata Sources > Custom Steam Covers, and set the path to your Steam userdata folder.
+In your Playnite add-ons menu, go to Extensions settings > Metadata Sources > Custom Steam Covers, and set the path to your Steam userdata folder.
 
 After that, simply use Edit Game Details > Download Metadata to download with the Custom Steam Covers metadata source. You can also
 configure it to be used on all metadata downloads by going to Settings > Metadata.

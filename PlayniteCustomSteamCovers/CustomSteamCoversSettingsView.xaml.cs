@@ -1,31 +1,23 @@
-﻿using Microsoft.Win32;
-using Microsoft.WindowsAPICodePack.Dialogs;
-using System;
-using System.Globalization;
-using System.Windows;
+﻿using System.Windows;
 
-namespace PlayniteCustomSteamCovers
+namespace PlayniteCustomSteamCovers;
+
+public partial class CustomSteamCoversSettingsView
 {
-    public partial class CustomSteamCoversSettingsView
-    {
-        public CustomSteamCoversSettingsView()
-        {
-            InitializeComponent();
-        }
+	public CustomSteamCoversSettingsView()
+	{
+		InitializeComponent();
+	}
 
-		private void btnOpenFile_Click(object sender, RoutedEventArgs e)
+	private void btnOpenFile_Click(object sender, RoutedEventArgs e)
+	{
+		var dataContext = (CustomSteamCoversMetadataSettings) DataContext;
+
+		var browsedFolder = dataContext.BrowseForFolder();
+
+		if (!string.IsNullOrWhiteSpace(browsedFolder))
 		{
-			var dataContext = (CustomSteamCoversMetadataSettings) DataContext;
-
-			using (var dialog = new CommonOpenFileDialog())
-			{
-				dialog.IsFolderPicker = true;
-				CommonFileDialogResult result = dialog.ShowDialog();
-				if (result == CommonFileDialogResult.Ok)
-                {
-					dataContext.PathToSteamUserdata = dialog.FileName;
-                }
-			}
+			dataContext.PathToSteamUserdata = browsedFolder;
 		}
 	}
 }

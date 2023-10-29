@@ -1,5 +1,12 @@
 AddonId: CustomSteamCovers
 Packages:
+  - Version: 3.0
+    RequiredApiVersion: 6.10.0
+    ReleaseDate: 2023-10-29
+    PackageUrl: https://github.com/uwx/PlayniteCustomSteamCovers/releases/download/v3.0/CustomSteamCovers_3_0.pext
+    Changelog:
+      - Bump minimum Playnite SDK, fix Browse button not working, reduce minimum .NET Framework version
+
   - Version: 2.0
     RequiredApiVersion: 6.1.0
     ReleaseDate: 2022-03-10
